@@ -1,11 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var capitalCase = ("ABCDEFGKIJKLMNOPQRSTUVWXYZ");
-var lowerCase = ("abcdefghijklmnopqrstuvwxyz");
-var numbers = ("0123456789");
-var specialCharacters = ("!#$%&'()*+,-./:;<=>?@[\]^_`{|}~")
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -18,19 +13,43 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-function myFunction () {
-  // getting length of password via ID
-  var passwordLength = document.getElementById("quantity");
-  //defining "getting" check boxes
-  var capitalCheck = document.getElementById("capitalSelect");
-  var lowercaseCheck = document.getElementById("lowercaseSelect");
-  var numberCheck = document.getElementById("numberSelect");
-  var specialCharacterCheck = document.getElementById("specialCharacterSelect");
+const resultEl = document.getElementById("result");
+const lengthEl = document.getElementById("length");
+const uppercaseEl = document.getElementById("uppercase");
+const lowercaseEl = document.getElementById("lowercase");
+const numberEl = document.getElementById("numbers");
+const symbolsEl = document.getElementById("symbols");
+const generateBtn = document.getElementById("generate");
+
+
+
+const randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol;
+};
+
+
+//generator functions
+
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+
 }
 
-if (capitalCheck.checked && lowercaseCheck.checked && numberCheck && specialCharacterCheck === true  ) {
-for (i = 0; i < quantity; i++)
-var lettersGen = [Math.floor(Math.random()*letters.length)];
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
-alert(letterGen)
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48); 
+}
+
+function getRandomSymbol() {
+  var symbols = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  return symbol[Math.floor(Math.random() * symbols.length);]
+}
+
+
+
