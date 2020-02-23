@@ -17,16 +17,14 @@
           <h2>Generate a Password</h2>
         </div>
         <form action="/action_page.php">
-        <label for="quantity">How long would you like your password? (between 8-128)</label>
-        <input type="number" id="quantity" name="quantity" min="8" max="128"><br>
-          <input type="checkbox" id="capitalSelect" name="capitalSelect" value="capital">
-          <label for="capitalSelect"> Capital letters</label><br>
-          <input type="checkbox" id="lowercaseSelect" name="lowercaseSelect" value="lowercase">
-          <label for="lowercaseSelect"> Lowercase letters</label><br>
-          <input type="checkbox" id="numberSelect" name="numberSelect" value="number">
-          <label for="numberSelect"> Numbers</label><br>
-          <input type="checkbox" id="specialCharacterSelect" name="specialCharacterSelect" value="specialCharacter">
-          <label for="specialCharacters"> Special Characters </label><br><br>
+          <input type="checkbox" id="uppercase" name="uppercase" value="uppercase">
+          <label for="uppercase"> Capital letters</label><br>
+          <input type="checkbox" id="lowercase" name="lowercase" value="lowercase">
+          <label for="lowercase"> Lowercase letters</label><br>
+          <input type="checkbox" id="number" name="number" value="number">
+          <label for="number"> Numbers</label><br>
+          <input type="checkbox" id="symbol" name="symbols" value="symbol">
+          <label for="symbol"> Special Characters </label><br><br>
         </form>
         <div class="card-body">
           <textarea

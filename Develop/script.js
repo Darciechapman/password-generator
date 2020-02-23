@@ -1,41 +1,84 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+// DOM elements
+const resultEl = document.getElementById('password');
+const uppercaseEl = document.getElementById('uppercase');
+const lowercaseEl = document.getElementById('lowercase');
+const numberEl = document.getElementById('number');
+const symbolEl = document.getElementById('symbol');
+const generateEl = document.getElementById('generate');
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-const resultEl = document.getElementById("result");
-const lengthEl = document.getElementById("length");
-const uppercaseEl = document.getElementById("uppercase");
-const lowercaseEl = document.getElementById("lowercase");
-const numberEl = document.getElementById("numbers");
-const symbolsEl = document.getElementById("symbols");
-const generateBtn = document.getElementById("generate");
-
-
+var lengtheEl = prompt("how long would you like your password? (choose a number between 8-128")
 
 const randomFunc = {
   lower: getRandomLower,
   upper: getRandomUpper,
   number: getRandomNumber,
-  symbol: getRandomSymbol;
+  symbol: getRandomSymbol 
 };
 
 
-//generator functions
+
+// Generate event listen
+generateEl.addEventListener('click', () => {
+  const length = +number.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numberEl.checked;
+  const hasSymbol = symbolEl.checked;
+
+  resultEl.innerText = generatePassword(
+    hasLower, 
+    hasUpper, 
+    hasNumber, 
+    hasSymbol,
+    length
+    );
+});
+
+//generate password function
+function generatePassword(lower, upper, number, symbol, length) {
+  // 1. init password var 
+  // 2. Filter out unchecked types 
+  // 3. Loop over length call generator function for each type
+  // 4. Add final password to the password var 
+
+  let generatedPassword = '';
+
+  const typesCount = lower + upper + number + symbol;
+
+  //console.log('typesCount: ', typesCount);
+
+  const typesArr = [{ lower },  { upper }, { number }, { symbol }].filter
+  (
+  item => Object.values(item) [0]
+  ); 
+
+  //console.log("typesarr: ", typesArr);
+
+  if(typesCount === 0) {
+    return '';
+  }
+
+  for(let i = 0; i < length; i += typesCount) {
+    typesArr.forEach(type => {
+      const funcName = Object.keys(type) [0];
+
+      //console.log('funcName: ', funcName);
+
+      generatedPassword += randomFunc[funcName]();
+
+    });
+
+  }
+
+  const finalPassword = generatedPassword.slice(0, length);
+
+  return finalPassword; 
+}
+
+// generator functions - http://www.net-comber.com/charset.html
 
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-
 }
 
 function getRandomUpper() {
@@ -43,13 +86,14 @@ function getRandomUpper() {
 }
 
 function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48); 
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
 function getRandomSymbol() {
-  var symbols = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-  return symbol[Math.floor(Math.random() * symbols.length);]
+  const symbols = "!@#$%^&*(){}[]=<>/,.";
+  return symbols[Math.floor(Math.random() * symbols.length)];
 }
+
 
 
 
