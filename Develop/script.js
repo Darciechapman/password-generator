@@ -6,7 +6,6 @@ const numberEl = document.getElementById('number');
 const symbolEl = document.getElementById('symbol');
 const generateEl = document.getElementById('generate');
 
-var lengtheEl = prompt("how long would you like your password? (choose a number between 8-128")
 
 const randomFunc = {
   lower: getRandomLower,
@@ -16,14 +15,21 @@ const randomFunc = {
 };
 
 
-
 // Generate event listen
 generateEl.addEventListener('click', () => {
-  const length = +number.value;
-  const hasLower = lowercaseEl.checked;
-  const hasUpper = uppercaseEl.checked;
-  const hasNumber = numberEl.checked;
-  const hasSymbol = symbolEl.checked;
+
+var length = prompt("how long would you like your password? (choose a number between 8-128");
+
+alert("for the next 4 options, you must choose at least one for a password to generate");
+
+var hasUpper = confirm("Would you like capital letter?");
+
+var hasLower = confirm("Any lower case?");
+
+var hasNumber = confirm("would you like numbers?");
+
+var hasSymbol = confirm("would you like special characters?");
+
 
   resultEl.innerText = generatePassword(
     hasLower, 
