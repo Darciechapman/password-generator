@@ -1,12 +1,8 @@
-// DOM elements
+// refering to the IDs in html
 const resultEl = document.getElementById('password');
-const uppercaseEl = document.getElementById('uppercase');
-const lowercaseEl = document.getElementById('lowercase');
-const numberEl = document.getElementById('number');
-const symbolEl = document.getElementById('symbol');
 const generateEl = document.getElementById('generate');
 
-
+// putting random functions together and defining them
 const randomFunc = {
   lower: getRandomLower,
   upper: getRandomUpper,
@@ -15,7 +11,7 @@ const randomFunc = {
 };
 
 
-// Generate event listen
+// Generate event listener (once generateEl ie the generate button in html, is clicked then run these)
 generateEl.addEventListener('click', () => {
 
 var length = prompt("how long would you like your password? (choose a number between 8-128");
