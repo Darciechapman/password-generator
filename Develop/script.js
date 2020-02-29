@@ -37,7 +37,13 @@ var hasSymbol = confirm("would you like special characters?");
 });
 
 //generate password function
-function generatePassword(lower, upper, number, symbol, length) {
+function generatePassword(
+  lower, 
+  upper, 
+  number, 
+  symbol, 
+  length) 
+  {
   // 1. init password var 
   // 2. Filter out unchecked types 
   // 3. Loop over length call generator function for each type
