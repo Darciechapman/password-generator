@@ -1,6 +1,6 @@
 PASSWORD GENERATER
 
-On this project our objective was to create a random password generator. That follows the criteria chosen by the viewer. The password options are; length, capital letters, lowercase letters, numbers and symbols. These options will be prompted after the user clicks the generate password button. 
+On this project our objective was to create a random password generator, that follows certain criteria. These criterias will be presented as prompted for the viewer to select. Once the viewer has chosen their options, a random password will appear in the text box that follows their criteria requests.
 
 Creating criteria 
 
@@ -18,9 +18,7 @@ Math.random - generates random decimal ie 0.643538.., 0.935473..
 Times by 26 because that’s the limit of choices we have in the alphabet 
 Maths.floor – rounds down
 65 – because that is where capital letters start on the browser character set
-
-(Math.floor(Math.random() * 26) + 65); 
-
+(Math.floor(Math.random() * 26) + 65);  
 Returns a random integer from 0 – 26
 
 Referencing Browser Character Set –
@@ -42,7 +40,6 @@ Maths.floor – rounds down
 Symbol – create string
 
 Define functions together into key – for easier reference 
-
 const randomFunc = {
   lower: getRandomLower,
   upper: getRandomUpper,
@@ -58,7 +55,7 @@ define result name
 let generateDpassword
 let means it creates a variable that can not be referred too outside its bracket
 
-const typeCount = lower + upper + numer + symbol;
+const typeCount = lower + upper + number + symbol;
 creates an variable with all criteria
 
 if typeCount = 0 
@@ -75,7 +72,6 @@ filtering out if they’re not included in confirm criteria
 
 
 Loop over the length and refer to generate function we’ve just made
-
   for(let i = 0; i < length; i += typesCount) {
     typesArr.forEach(type => {
       const funcName = Object.keys(type) [0];
@@ -91,7 +87,7 @@ Then referring result to generatedPassword
 Genpassword = genpassword + our functions all in one, and their length
 
 Then we need to print finalpassword = generatedPassword
-In our password text ID
+In our password text ID, in order for our password to print inside the text box
 From referring to resultEl.innerText = generatePassword(
 Haslower, hasupper, hasnumber, hassymbol, length
 
@@ -104,12 +100,7 @@ Haslower, hasupper, hasnumber, hassymbol, length
     length
     );
 
-See what happens
-Needs to include question, confirms. 
 
 Creating a length range limit.
 If generated password length <8 or >128
 Alert error.
-ELSE return password innertext  
-
-
